@@ -1,0 +1,6 @@
+framework module Pods_megawallet {
+  umbrella header "Pods-megawallet-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,6 +11,10 @@
 		85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BC9726ECD54A00DCB769 /* ContentView.swift */; };
 		85A4BC9A26ECD54B00DCB769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A4BC9926ECD54B00DCB769 /* Assets.xcassets */; };
 		85A4BC9D26ECD54C00DCB769 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A4BC9C26ECD54C00DCB769 /* Preview Assets.xcassets */; };
+		85A4BCA526ECD62200DCB769 /* filewallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BCA426ECD62200DCB769 /* filewallet.swift */; };
+		85A4BCA926ECD65900DCB769 /* wallet_import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BCA826ECD65900DCB769 /* wallet_import.swift */; };
+		85A4BCAB26ECD67E00DCB769 /* wallet_create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BCAA26ECD67E00DCB769 /* wallet_create.swift */; };
+		E4C8E8BA35C26D74C7696972 /* Pods_megawallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13452DA8B2A639A5954D010 /* Pods_megawallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,12 @@
 		85A4BC9926ECD54B00DCB769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85A4BC9C26ECD54C00DCB769 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85A4BC9E26ECD54C00DCB769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85A4BCA426ECD62200DCB769 /* filewallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filewallet.swift; sourceTree = "<group>"; };
+		85A4BCA826ECD65900DCB769 /* wallet_import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_import.swift; sourceTree = "<group>"; };
+		85A4BCAA26ECD67E00DCB769 /* wallet_create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_create.swift; sourceTree = "<group>"; };
+		A13452DA8B2A639A5954D010 /* Pods_megawallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_megawallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC857FD914BD63885A05985 /* Pods-megawallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-megawallet.release.xcconfig"; path = "Target Support Files/Pods-megawallet/Pods-megawallet.release.xcconfig"; sourceTree = "<group>"; };
+		E0C1FE35469D845B3896F567 /* Pods-megawallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-megawallet.debug.xcconfig"; path = "Target Support Files/Pods-megawallet/Pods-megawallet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C8E8BA35C26D74C7696972 /* Pods_megawallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48FB5D31E1F035B41D3588F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0C1FE35469D845B3896F567 /* Pods-megawallet.debug.xcconfig */,
+				AAC857FD914BD63885A05985 /* Pods-megawallet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		59EE61810430671D534BEF38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A13452DA8B2A639A5954D010 /* Pods_megawallet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		85A4BC8926ECD54A00DCB769 = {
 			isa = PBXGroup;
 			children = (
 				85A4BC9426ECD54A00DCB769 /* megawallet */,
 				85A4BC9326ECD54A00DCB769 /* Products */,
+				48FB5D31E1F035B41D3588F4 /* Pods */,
+				59EE61810430671D534BEF38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +88,9 @@
 				85A4BC9926ECD54B00DCB769 /* Assets.xcassets */,
 				85A4BC9E26ECD54C00DCB769 /* Info.plist */,
 				85A4BC9B26ECD54C00DCB769 /* Preview Content */,
+				85A4BCA426ECD62200DCB769 /* filewallet.swift */,
+				85A4BCA826ECD65900DCB769 /* wallet_import.swift */,
+				85A4BCAA26ECD67E00DCB769 /* wallet_create.swift */,
 			);
 			path = megawallet;
 			sourceTree = "<group>";
@@ -76,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85A4BCA126ECD54C00DCB769 /* Build configuration list for PBXNativeTarget "megawallet" */;
 			buildPhases = (
+				2BA4A320AD134E4C91BE9BDF /* [CP] Check Pods Manifest.lock */,
 				85A4BC8E26ECD54A00DCB769 /* Sources */,
 				85A4BC8F26ECD54A00DCB769 /* Frameworks */,
 				85A4BC9026ECD54A00DCB769 /* Resources */,
+				5EE93043C1D31644DAB69BA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +169,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BA4A320AD134E4C91BE9BDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-megawallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EE93043C1D31644DAB69BA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-megawallet/Pods-megawallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-megawallet/Pods-megawallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-megawallet/Pods-megawallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		85A4BC8E26ECD54A00DCB769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */,
+				85A4BCAB26ECD67E00DCB769 /* wallet_create.swift in Sources */,
+				85A4BCA526ECD62200DCB769 /* filewallet.swift in Sources */,
+				85A4BCA926ECD65900DCB769 /* wallet_import.swift in Sources */,
 				85A4BC9626ECD54A00DCB769 /* megawalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +345,7 @@
 		};
 		85A4BCA226ECD54C00DCB769 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0C1FE35469D845B3896F567 /* Pods-megawallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -285,6 +367,7 @@
 		};
 		85A4BCA326ECD54C00DCB769 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC857FD914BD63885A05985 /* Pods-megawallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
