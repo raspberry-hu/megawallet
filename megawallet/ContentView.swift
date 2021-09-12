@@ -1,4 +1,4 @@
-//
+ //
 //  ContentView.swift
 //  megawallet
 //
@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+ 
 struct ContentView: View {
 
       var body: some View {
@@ -26,7 +26,7 @@ enum Tab {
     
     case chat_function
     
-    case share_function
+    case share_function
 
 }
 

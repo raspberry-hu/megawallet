@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import web3swift
 
 struct wallet_import: View {
     var body: some View {
