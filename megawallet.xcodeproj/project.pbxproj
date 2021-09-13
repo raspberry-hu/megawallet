@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85133FED26EEFB79001A76CB /* megawallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85133FEB26EEFB79001A76CB /* megawallet.xcdatamodeld */; };
+		8513402F26EF1933001A76CB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513402E26EF1933001A76CB /* Persistence.swift */; };
 		85A4BC9626ECD54A00DCB769 /* megawalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BC9526ECD54A00DCB769 /* megawalletApp.swift */; };
 		85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BC9726ECD54A00DCB769 /* ContentView.swift */; };
 		85A4BC9A26ECD54B00DCB769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A4BC9926ECD54B00DCB769 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85133FEC26EEFB79001A76CB /* megawallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = megawallet.xcdatamodel; sourceTree = "<group>"; };
+		8513402E26EF1933001A76CB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		85A4BC9226ECD54A00DCB769 /* megawallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = megawallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A4BC9526ECD54A00DCB769 /* megawalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = megawalletApp.swift; sourceTree = "<group>"; };
 		85A4BC9726ECD54A00DCB769 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				85A4BCA426ECD62200DCB769 /* filewallet.swift */,
 				85A4BCA826ECD65900DCB769 /* wallet_import.swift */,
 				85A4BCAA26ECD67E00DCB769 /* wallet_create.swift */,
+				85133FEB26EEFB79001A76CB /* megawallet.xcdatamodeld */,
+				8513402E26EF1933001A76CB /* Persistence.swift */,
 			);
 			path = megawallet;
 			sourceTree = "<group>";
@@ -218,7 +224,9 @@
 				85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */,
 				85A4BCAB26ECD67E00DCB769 /* wallet_create.swift in Sources */,
 				85A4BCA526ECD62200DCB769 /* filewallet.swift in Sources */,
+				8513402F26EF1933001A76CB /* Persistence.swift in Sources */,
 				85A4BCA926ECD65900DCB769 /* wallet_import.swift in Sources */,
+				85133FED26EEFB79001A76CB /* megawallet.xcdatamodeld in Sources */,
 				85A4BC9626ECD54A00DCB769 /* megawalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85133FEB26EEFB79001A76CB /* megawallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85133FEC26EEFB79001A76CB /* megawallet.xcdatamodel */,
+			);
+			currentVersion = 85133FEC26EEFB79001A76CB /* megawallet.xcdatamodel */;
+			path = megawallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85A4BC8A26ECD54A00DCB769 /* Project object */;
 }
