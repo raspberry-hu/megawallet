@@ -24,16 +24,6 @@ class ZipCodeModel: ObservableObject {
 struct wallet_create: View {
     @ObservedObject private var zipCodeModel = ZipCodeModel()
     var body: some View {
-        let mnemonic = try?BIP39.generateMnemonics(bitsOfEntropy: 128)
-        let seed = BIP39.seedFromMmemonics(mnemonic ?? "")!
-        let seed1 = seed.toHexString()
-        let see = seed.base64EncodedString()
-        let keystore = try! BIP32Keystore(seed: seed, password: "123456")
-        let keystoreManager = KeystoreManager([keystore!])
-        let account = keystoreManager.addresses![0].address
-        let account_eth = keystoreManager.addresses![0]
-        let privateKey = try! keystore?.UNSAFE_getPrivateKeyData(password: "123456", account: account_eth)
-        let privateKey_hexstring = privateKey?.toHexString() ?? ""
         VStack{
             TextField("Input your password", text: $zipCodeModel.zip)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -49,7 +39,21 @@ struct wallet_create: View {
                     }
                     }
                     Button (action:{
+                        let password = zipCodeModel.zip
+                        let mnemonic = try?BIP39.generateMnemonics(bitsOfEntropy: 128)
+                        let seed = BIP39.seedFromMmemonics(mnemonic ?? "")!
+                        let keystore = try! BIP32Keystore(seed: seed, password: password)
+                        let keystoreManager = KeystoreManager([keystore!])
+                        let account = keystoreManager.addresses![0].address
+                        let account_eth = keystoreManager.addresses![0]
+                        let privateKey = try! keystore?.UNSAFE_getPrivateKeyData(password: password, account: account_eth)
+                        let privateKey_hexstring = privateKey?.toHexString() ?? ""
                         let judge = Insert_Wallet(Account: account, Mnemonic: mnemonic ?? "", Private: privateKey_hexstring, database: wallet_test.database_test)
+                        if judge{
+                            print("创建成功")
+                        }else{
+                            print("创建失败")
+                        }
                     }){
                         Text("确定")
                     }

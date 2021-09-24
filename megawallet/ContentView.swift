@@ -56,7 +56,7 @@ struct AppTabNavigation: View {
             .tag(Tab.file_function)
 
             NavigationView {
-                Text("2")
+                image_upload()
             }.navigationBarHidden(true)
 
             .navigationBarBackButtonHidden(true)
@@ -70,7 +70,6 @@ struct AppTabNavigation: View {
             .tag(Tab.photo_function)
             
             NavigationView {
-
                 Image("mega_photo")
                     .resizable()
                     .frame(width: 430.0, height: 900.0)
