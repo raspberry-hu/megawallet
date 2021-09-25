@@ -45,6 +45,20 @@ func Insert_Wallet(Account:String, Mnemonic:String, Private:String, database:Dat
     return true
 }
 
+func Search_Wallet(Count: Int, database:Database) -> WalletTable?{
+    do {
+        let order = [(WalletTable.Properties.WalletCount).asOrder(by: .ascending)]
+        let object: WalletTable? = try database.getObject(
+            fromTable: "WalletDB",
+            orderBy: order,
+            offset: Count)
+        return object
+    } catch let error {
+        print("select objects error: \(error)")
+        return nil
+    }
+}
+
 func createDB() -> Database{
     let machPath = CommandLine.arguments.first!
     let baseDirectory = URL(fileURLWithPath: machPath).deletingLastPathComponent().appendingPathComponent("WalletDB").path

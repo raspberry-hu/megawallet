@@ -40,6 +40,7 @@ struct NFT_Content: View {
             HStack{
                 Button("上传", action: {
                     print(self.tfMgr.Imgae)
+                    
                 })
                 Button("取消", action: {
                     tfMgr.description = ""

@@ -37,10 +37,6 @@ struct image_upload: View {
                 .onTapGesture {
                     self.showingImagePicker = true
                 }
-//                Button("upload") {
-//                    tfMgr.Imgae = self.image1
-//                    self.showingNFTContent.toggle()
-//                }
                 Button(action: {
                     tfMgr.Imgae = self.image1
                     self.showingNFTContent.toggle()
