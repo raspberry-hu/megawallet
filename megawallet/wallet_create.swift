@@ -7,8 +7,8 @@
 
 import SwiftUI
 import web3swift
-import WCDBSwift
 import Foundation
+import WCDBSwift
 
 class ZipCodeModel: ObservableObject {
     var limit: Int = 64
