@@ -87,7 +87,7 @@ struct AppTabNavigation: View {
             
             NavigationView {
 
-                JSON_View()
+                Text("1")
 
             }.navigationBarHidden(true)
 

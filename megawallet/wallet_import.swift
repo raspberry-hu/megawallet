@@ -40,27 +40,6 @@ struct wallet_import: View {
                     Text("导入")
                 }
             }
-            VStack{
-                TextField("input your privatekey", text: $Wallet_import_key.privatekey)
-                TextField("input your password", text: $Wallet_import_key.password)
-                Button {
-                    let password = Wallet_import_key.password
-                    let key = Wallet_import_key.privatekey
-                    let formattedKey = key.trimmingCharacters(in: .whitespacesAndNewlines)
-                    let dataKey = Data.fromHex(formattedKey)!
-                    let keystore = try! EthereumKeystoreV3(privateKey: dataKey, password: password)!
-                    let account = keystore.addresses!.first!.address
-                    let mnemonic = "no"
-                    let judge = Insert_Wallet(Account: account, Mnemonic: mnemonic, Private: key, database: wallet_test.database_test)
-                    if judge{
-                        print("创建成功")
-                    }else{
-                        print("创建失败")
-                    }
-                } label: {
-                    Text("导入")
-                }
-            }
         }
     }
 }

@@ -7,6 +7,7 @@ target 'megawallet' do
   inhibit_all_warnings!
   pod 'web3swift', :git => 'https://github.com/skywinder/web3swift.git'
   pod 'WCDB.swift'
+  pod 'Moya', '~> 15.0'
 
   # Pods for megawallet
 

@@ -11,7 +11,7 @@ import WCDBSwift
 struct wallet_Transaction: View {
     var body: some View {
         VStack{
-            
+            Text("2")
         }
     }
 }

@@ -32,11 +32,22 @@ class WalletTable: TableCodable {
 }
 
 func Insert_Wallet(Account:String, Mnemonic:String, Private:String, database:Database) -> Bool {
+    print("123")
     let object = WalletTable()
     object.WalletAccount = Account
     object.WalletMnemonic = Mnemonic
     object.WalletPrivate = Private
     object.isAutoIncrement = true
+    do {
+        try database.create(table: "WalletDB", of: WalletTable.self)
+    } catch let error {
+        print("creat table error: \(error)")
+    }
+    do{
+        let table: Table<WalletTable>? = try database.getTable(named: "WalletDB")
+    } catch let error{
+        print("get table error: \(error)")
+    }
     do{
         try database.insert(objects: object, intoTable: "WalletDB")
     }catch let error{
@@ -67,9 +78,9 @@ func createDB() -> Database{
     let path = URL(fileURLWithPath: baseDirectory).appendingPathComponent(className).path
     let tableName = className
     let database = Database(withPath: path)
-    database.close(onClosed: {
-        try? database.removeFiles()
-    })
+//    database.close(onClosed: {
+//        try? database.removeFiles()
+//    })
     do {
         try database.create(table: tableName, of: WalletTable.self)
     } catch let error {

@@ -6,28 +6,11 @@
 //
 
 import SwiftUI
-
-let json = """
-{
-    "name": "John Davis",
-    "country": "Peru",
-    "use": "to buy a new collection of clothes to stock her shop before the holidays.",
-    "amount": 150
-}
-"""
+import Alamofire
 
 struct JSON_View: View {
     var body: some View {
-        Button {
-            let test = decode(json: json)
-            if test{
-                print("success")
-            }else{
-                print("fail")
-            }
-        } label: {
-            Text("test")
-        }
+        Text("1")
     }
 }
 
