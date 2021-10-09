@@ -27,6 +27,130 @@ struct NFT_zhubi: Codable {
     }
 }
 
+struct NFTSellRequest: Encodable {
+    let network: String
+    let owner_address: String
+    let my_mnemonic: String
+    let fix_price: Int
+    let token_id: String
+}
+
+struct NFTSellResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTNetherlandsSellRequest: Encodable{
+    let network: String
+    let owner_address: String
+    let my_mnemonic: String
+    let start_price: String
+    let end_price: String
+    let expirationTime: String
+    let token_id: String
+}
+
+struct NFTNetherlandsSellResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTEnglandSellRequest: Encodable{
+    let network: String
+    let owner_address: String
+    let my_mnemonic: String
+    let start_price: String
+    let end_price: String
+    let expirationTime: String
+    let token_id: String
+}
+
+struct NFTEnglandSellResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTBindSellRequest: Encodable{
+    let network: String
+    let owner_address: String
+    let my_mnemonic: String
+    let bundleName: String
+    let bundleDescription: String
+    let start_price: String
+    let expirationTime: String
+    let token_id: String
+}
+
+struct NFTBindSellResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTAssetsRequest: Encodable{
+    let owner: String
+    let asset_contract_address: String
+    let limit: String
+}
+
+struct NFTAssetsResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTBundlesRequest: Encodable{
+    let on_sale: Bool
+    let owner: String
+    let asset_contract_address: String
+    let limit: String
+}
+
+struct NFTBundlesResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
+struct NFTEventsRequest: Encodable{
+    let asset_contract_address: String
+    let account_address: String
+    let limit: String
+    let only_opensea: Bool
+    let event_type: String
+    let auction_type: String
+}
+
+struct NFTEventsResponse: Codable{
+    var code: Int
+    var msg: String
+    init(_ code: Int, _ msg: String){
+        self.code = code
+        self.msg = msg
+    }
+}
+
 struct mnemonic_json: Encodable {
     let network: String
     let owner_address: String
@@ -56,25 +180,18 @@ func upload_chain(network: String, owner_address: String) -> String{
                parameters: menmonic,
                encoder: JSONParameterEncoder.default)
         .responseJSON { response in
-//        debugPrint(response)
-//        print(response.result)
         let result = response.result
-//        print("0")
         let t = String(bytes: response.data!, encoding: .utf8)!
-//        print(String(bytes: response.data!, encoding: .utf8)!)
         switch result {
         case .success(let data):
-//        print(String(bytes: data, encoding: .utf8)!)
-//        print("1")
-//        print(data)
-//        print("2")
-//        var key = response.result
-//        print(decode_msg(json: t))
         Msg = decode_msg(json: t)!.msg
-//        print("3")
         case .failure(let Error):
         print("error")
       }
+    }
+    while Msg == "0" {
+        sleep(1)
+        print("sleeping")
     }
     return Msg
 }

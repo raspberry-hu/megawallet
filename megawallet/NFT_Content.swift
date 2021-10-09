@@ -49,19 +49,22 @@ struct NFT_Content: View {
                 Button("rinkeby", action: {
                     tfMgr.chain = "rinkeby"
                 })
+                .foregroundColor(.gray)
             }
-            Spacer()
             HStack{
                 Button("铸币", action: {
                     let value = Int(tfMgr.walletcount)!
                     let wallet:WalletTable = Search_Wallet(Count: value, database: wallet_test.database_test)!
                     let chain_json = upload_chain(network: tfMgr.chain, owner_address: wallet.WalletAccount!)
+                    print("1")
                     print(chain_json)
+                    print("2")
                     let nft = NFT(tfMgr.name, tfMgr.description, tfMgr.number, tfMgr.description_url, tfMgr.set, chain_json)
                     let jsonstring = encoder(loan: nft)
                     upload(image: tfMgr.Imgae!, json: jsonstring!, imageName: tfMgr.name)
-                    
                 })
+                .foregroundColor(.gray)
+                .padding()
                 Button("取消", action: {
                     tfMgr.description = ""
                     tfMgr.description_url = ""
@@ -70,6 +73,8 @@ struct NFT_Content: View {
                     tfMgr.chain = ""
                     tfMgr.set = ""
                 })
+                .foregroundColor(.gray)
+                .padding()
             }
         }
     }
