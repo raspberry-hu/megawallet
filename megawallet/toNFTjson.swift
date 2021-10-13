@@ -151,6 +151,12 @@ struct NFTEventsResponse: Codable{
     }
 }
 
+struct NFTTokenidResponse: Codable{
+    var code: Int?
+    var msg: String?
+    //var id: Int?
+}
+
 struct mnemonic_json: Encodable {
     let network: String
     let owner_address: String
@@ -192,6 +198,26 @@ func upload_chain(network: String, owner_address: String) -> String{
       }
         sema.signal()
     }
+    sema.wait()
+    return Msg
+}
+
+func upload_chain_tokenid() -> String{
+    var Msg = "0"
+    let queue = DispatchQueue.global()
+    let sema = DispatchSemaphore(value: 0)
+    AF.request("http://10.112.110.230:8888/api/getTokenId", method: .post, requestModifier: { $0.timeoutInterval = 60})
+        .responseDecodable{ (response: AFDataResponse<NFTTokenidResponse>) in
+            switch response.result {
+            case .success(let model):
+                Msg = model.msg!
+                break
+            case .failure(let error):
+                break
+            }
+            sema.signal()
+        }
+
     sema.wait()
     return Msg
 }
