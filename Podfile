@@ -8,6 +8,7 @@ target 'megawallet' do
   pod 'web3swift', :git => 'https://github.com/skywinder/web3swift.git'
   pod 'WCDB.swift'
   pod 'Moya', '~> 15.0'
+  pod 'AlertToast'
 
   # Pods for megawallet
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 class TextBindingManager: ObservableObject {
     @Published var walletcount = ""
@@ -20,6 +21,8 @@ class TextBindingManager: ObservableObject {
 }
 
 struct NFT_Content: View {
+    @State private var showCastSuccess = false
+    @State private var showCastFail = false
     @EnvironmentObject var tfMgr:TextBindingManager
     var body: some View {
         VStack{
@@ -43,9 +46,6 @@ struct NFT_Content: View {
                 .multilineTextAlignment(TextAlignment.center)
                 .keyboardType(.numberPad)
             Menu("选择主链"){
-//                Button("Ethereum", action: {
-//                    tfMgr.chain = "Ethereum"
-//                })
                 Button("rinkeby", action: {
                     tfMgr.chain = "rinkeby"
                 })
@@ -55,10 +55,16 @@ struct NFT_Content: View {
                 Button("铸币", action: {
                     let value = Int(tfMgr.walletcount)!
                     let wallet:WalletTable = Search_Wallet(Count: value, database: wallet_test.database_test)!
+                    let token_id =
                     let chain_json = upload_chain(network: tfMgr.chain, owner_address: wallet.WalletAccount!)
                     print("1")
                     print(chain_json)
                     print("2")
+                    if chain_json != "0"{
+                        showCastSuccess = true
+                    }else{
+                        showCastFail = true
+                    }
                     let nft = NFT(tfMgr.name, tfMgr.description, tfMgr.number, tfMgr.description_url, tfMgr.set, chain_json)
                     let jsonstring = encoder(loan: nft)
                     upload(image: tfMgr.Imgae!, json: jsonstring!, imageName: tfMgr.name)
@@ -76,6 +82,12 @@ struct NFT_Content: View {
                 .foregroundColor(.gray)
                 .padding()
             }
+        }
+        .toast(isPresenting: $showCastSuccess){
+            AlertToast(type: .complete(Color.green), title: "铸币成功")
+        }
+        .toast(isPresenting: $showCastFail){
+            AlertToast(type: .error(Color.red), title: "铸币失败")
         }
     }
 }

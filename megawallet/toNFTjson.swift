@@ -19,9 +19,9 @@ struct NFT: Codable {
 }
 
 struct NFT_zhubi: Codable {
-    var code: Int
+    var code: String
     var msg: String
-    init(_ code: Int, _ msg: String){
+    init(_ code: String, _ msg: String){
         self.code = code
         self.msg = msg
     }
@@ -175,24 +175,24 @@ func upload(image: UIImage, json: String, imageName: String){
 func upload_chain(network: String, owner_address: String) -> String{
     let menmonic = mnemonic_json(network: network, owner_address: owner_address)
     var Msg = "0"
+    let queue = DispatchQueue.global()
+    let sema = DispatchSemaphore(value: 0)
     AF.request("http://10.112.110.230:8888/api/mint",
                method: .post,
                parameters: menmonic,
-               encoder: JSONParameterEncoder.default)
+               encoder: JSONParameterEncoder.default, requestModifier: { $0.timeoutInterval = 60})
         .responseJSON { response in
         let result = response.result
         let t = String(bytes: response.data!, encoding: .utf8)!
         switch result {
         case .success(let data):
-        Msg = decode_msg(json: t)!.msg
+            Msg = decode_msg(json: t)!.msg
         case .failure(let Error):
         print("error")
       }
+        sema.signal()
     }
-    while Msg == "0" {
-        sleep(1)
-        print("sleeping")
-    }
+    sema.wait()
     return Msg
 }
 
