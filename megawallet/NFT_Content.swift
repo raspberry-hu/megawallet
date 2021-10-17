@@ -55,17 +55,22 @@ struct NFT_Content: View {
                 Button("铸币", action: {
                     let value = Int(tfMgr.walletcount)!
                     let wallet:WalletTable = Search_Wallet(Count: value, database: wallet_test.database_test)!
-                    let token_id =
-                    let chain_json = upload_chain(network: tfMgr.chain, owner_address: wallet.WalletAccount!)
+                    let token_id = upload_chain_tokenid()
+                    print(token_id)
+                    print(wallet.WalletAccount)
+                    print(tfMgr.chain)
+                    let chain_json = upload_chain(network: tfMgr.chain, owner_address: wallet.WalletAccount!, mint_number: tfMgr.number)
                     print("1")
                     print(chain_json)
                     print("2")
                     if chain_json != "0"{
                         showCastSuccess = true
+                        print("铸币成功")
                     }else{
                         showCastFail = true
+                        print("铸币失败")
                     }
-                    let nft = NFT(tfMgr.name, tfMgr.description, tfMgr.number, tfMgr.description_url, tfMgr.set, chain_json)
+                    let nft = NFT(tfMgr.name, tfMgr.description, tfMgr.number, tfMgr.description_url, tfMgr.set, token_id, wallet.WalletAccount!)
                     let jsonstring = encoder(loan: nft)
                     upload(image: tfMgr.Imgae!, json: jsonstring!, imageName: tfMgr.name)
                 })

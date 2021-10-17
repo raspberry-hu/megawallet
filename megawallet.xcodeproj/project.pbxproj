@@ -39,6 +39,7 @@
 		85A4BCA826ECD65900DCB769 /* wallet_import.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_import.swift; sourceTree = "<group>"; };
 		85A4BCAA26ECD67E00DCB769 /* wallet_create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_create.swift; sourceTree = "<group>"; };
 		85D9D9CA26FDF4F10049456E /* wallet_Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallet_Transaction.swift; sourceTree = "<group>"; };
+		85DF534C2717123300B4F979 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A13452DA8B2A639A5954D010 /* Pods_megawallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_megawallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC857FD914BD63885A05985 /* Pods-megawallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-megawallet.release.xcconfig"; path = "Target Support Files/Pods-megawallet/Pods-megawallet.release.xcconfig"; sourceTree = "<group>"; };
 		E0C1FE35469D845B3896F567 /* Pods-megawallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-megawallet.debug.xcconfig"; path = "Target Support Files/Pods-megawallet/Pods-megawallet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 				8550C06826FC6B1D00B17B3D /* NFT_Content.swift */,
 				85D9D9CA26FDF4F10049456E /* wallet_Transaction.swift */,
 				85585EFC2700AAF500A10C15 /* toNFTjson.swift */,
+				85DF534C2717123300B4F979 /* MyPlayground.playground */,
 			);
 			path = megawallet;
 			sourceTree = "<group>";

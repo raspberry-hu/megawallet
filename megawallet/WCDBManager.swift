@@ -13,7 +13,6 @@ class WalletTable: TableCodable {
     var WalletPrivate: String?
     var WalletMnemonic: String?
     var WalletCount: Int? = 0
-    //var description: String? = nil
     enum CodingKeys: String, CodingTableKey {
         typealias Root = WalletTable
         static let objectRelationalMapping = TableBinding(CodingKeys.self)

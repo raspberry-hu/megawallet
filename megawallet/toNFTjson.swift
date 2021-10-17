@@ -3,25 +3,27 @@ import Alamofire
 
 struct NFT: Codable {
     var nft_name: String
-    var description: String
+    var desrciption: String
     var mint_num: String
     var external_link: String
     var input_arr: String
     var tokenId: String
-    init(_ name: String, _ description: String, _ number: String, _ external_link: String, _ input_arr: String, _ tokenId: String){
+    var walletaddress: String
+    init(_ name: String, _ desrciption: String, _ number: String, _ external_link: String, _ input_arr: String, _ tokenId: String, _ walletaddress: String){
         self.nft_name = name
-        self.description = description
+        self.desrciption = desrciption
         self.external_link = external_link
         self.mint_num = number
         self.input_arr = input_arr
         self.tokenId = tokenId
+        self.walletaddress = walletaddress
     }
 }
 
 struct NFT_zhubi: Codable {
-    var code: String
+    var code: Int
     var msg: String
-    init(_ code: String, _ msg: String){
+    init(_ code: Int, _ msg: String){
         self.code = code
         self.msg = msg
     }
@@ -157,9 +159,15 @@ struct NFTTokenidResponse: Codable{
     //var id: Int?
 }
 
+struct NFTTradeResponse: Codable{
+    var code: Int?
+    var msg: [String]
+}
+
 struct mnemonic_json: Encodable {
     let network: String
     let owner_address: String
+    let mint_number: String
 }
 
 struct HTTPBinResponse: Decodable { let url: String }
@@ -174,31 +182,34 @@ func upload(image: UIImage, json: String, imageName: String){
         Multipart.append(imageData, withName: "file", fileName: "\(imageName).jpg", mimeType: "image/png")
     },to: "http://10.28.179.235:8090/api/server", method: .post, headers: httpHeaders)
     .responseDecodable(of: HTTPBinResponse.self) { response in
+        print("打印服务器报错信息")
         debugPrint(response)
     }
 }
 
-func upload_chain(network: String, owner_address: String) -> String{
-    let menmonic = mnemonic_json(network: network, owner_address: owner_address)
+func upload_chain(network: String, owner_address: String, mint_number: String) -> String{
+    let menmonic = mnemonic_json(network: network, owner_address: owner_address, mint_number: mint_number)
     var Msg = "0"
     let queue = DispatchQueue.global()
     let sema = DispatchSemaphore(value: 0)
+    print("开始upload")
     AF.request("http://10.112.110.230:8888/api/mint",
                method: .post,
                parameters: menmonic,
-               encoder: JSONParameterEncoder.default, requestModifier: { $0.timeoutInterval = 60})
-        .responseJSON { response in
-        let result = response.result
-        let t = String(bytes: response.data!, encoding: .utf8)!
-        switch result {
-        case .success(let data):
-            Msg = decode_msg(json: t)!.msg
-        case .failure(let Error):
-        print("error")
-      }
+               requestModifier: { $0.timeoutInterval = 120})
+        .responseDecodable(queue: queue){ (response: AFDataResponse<NFTTradeResponse>) in
+            debugPrint(response)
+            switch response.result {
+            case .success(let model):
+                Msg = model.msg[0]
+            case .failure(let error):
+                print("error")
+            }
         sema.signal()
     }
+    print("wait开始")
     sema.wait()
+    print("wait结束")
     return Msg
 }
 
@@ -206,18 +217,18 @@ func upload_chain_tokenid() -> String{
     var Msg = "0"
     let queue = DispatchQueue.global()
     let sema = DispatchSemaphore(value: 0)
-    AF.request("http://10.112.110.230:8888/api/getTokenId", method: .post, requestModifier: { $0.timeoutInterval = 60})
-        .responseDecodable{ (response: AFDataResponse<NFTTokenidResponse>) in
+    print("tokenid_upload")
+    AF.request("http://10.112.110.230:8888/api/getTokenId", method: .post, requestModifier: { $0.timeoutInterval = 120})
+        .responseDecodable(queue: queue){ (response: AFDataResponse<NFTTokenidResponse>) in
             switch response.result {
             case .success(let model):
                 Msg = model.msg!
-                break
+                print("tokenid是\(Msg)")
             case .failure(let error):
-                break
+                print("error")
             }
             sema.signal()
         }
-
     sema.wait()
     return Msg
 }
