@@ -9,7 +9,9 @@ target 'megawallet' do
   pod 'WCDB.swift'
   pod 'Moya', '~> 15.0'
   pod 'AlertToast'
-
+  pod 'Kingfisher', '~> 7.0'
+  pod 'Starscream', '~> 4.0.0'
+ 
   # Pods for megawallet
 
 end

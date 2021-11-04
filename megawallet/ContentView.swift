@@ -56,7 +56,7 @@ struct AppTabNavigation: View {
             .tag(Tab.file_function)
 
             NavigationView {
-                image_upload()
+                ImageUploadView()
             }.navigationBarHidden(true)
 
             .navigationBarBackButtonHidden(true)
@@ -87,7 +87,7 @@ struct AppTabNavigation: View {
             
             NavigationView {
 
-                Text("1")
+                NFTAssetView()
 
             }.navigationBarHidden(true)
 
