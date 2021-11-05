@@ -27,6 +27,12 @@
 		8563A22F273380AC007D657A /* WalletGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563A22E273380AC007D657A /* WalletGate.swift */; };
 		8563A23627338277007D657A /* NFTAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8563A23527338277007D657A /* NFTAssetView.swift */; };
 		85952A9326F33F450035B32C /* WCDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85952A9226F33F450035B32C /* WCDBManager.swift */; };
+		85A02086273416D90001575E /* NFTEventJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A02085273416D90001575E /* NFTEventJson.swift */; };
+		85A020882734DDA80001575E /* NFTSellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A020872734DDA80001575E /* NFTSellView.swift */; };
+		85A0208A2734DE850001575E /* NFTAuctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A020892734DE850001575E /* NFTAuctionView.swift */; };
+		85A0208C273561DC0001575E /* WalletConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A0208B273561DC0001575E /* WalletConnectView.swift */; };
+		85A0208E273564BE0001575E /* NFTSell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A0208D273564BE0001575E /* NFTSell.swift */; };
+		85A020902735763C0001575E /* NFTAuction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A0208F2735763C0001575E /* NFTAuction.swift */; };
 		85A4BC9626ECD54A00DCB769 /* megawalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BC9526ECD54A00DCB769 /* megawalletApp.swift */; };
 		85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4BC9726ECD54A00DCB769 /* ContentView.swift */; };
 		85A4BC9A26ECD54B00DCB769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A4BC9926ECD54B00DCB769 /* Assets.xcassets */; };
@@ -53,6 +59,12 @@
 		8563A22E273380AC007D657A /* WalletGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGate.swift; sourceTree = "<group>"; };
 		8563A23527338277007D657A /* NFTAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAssetView.swift; sourceTree = "<group>"; };
 		85952A9226F33F450035B32C /* WCDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDBManager.swift; sourceTree = "<group>"; };
+		85A02085273416D90001575E /* NFTEventJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTEventJson.swift; sourceTree = "<group>"; };
+		85A020872734DDA80001575E /* NFTSellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTSellView.swift; sourceTree = "<group>"; };
+		85A020892734DE850001575E /* NFTAuctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAuctionView.swift; sourceTree = "<group>"; };
+		85A0208B273561DC0001575E /* WalletConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnectView.swift; sourceTree = "<group>"; };
+		85A0208D273564BE0001575E /* NFTSell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTSell.swift; sourceTree = "<group>"; };
+		85A0208F2735763C0001575E /* NFTAuction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTAuction.swift; sourceTree = "<group>"; };
 		85A4BC9226ECD54A00DCB769 /* megawallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = megawallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A4BC9526ECD54A00DCB769 /* megawalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = megawalletApp.swift; sourceTree = "<group>"; };
 		85A4BC9726ECD54A00DCB769 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +148,7 @@
 				8563A22627337F77007D657A /* WalletCreateView.swift */,
 				8563A22A27337FE2007D657A /* WalletTransactionView.swift */,
 				8563A22E273380AC007D657A /* WalletGate.swift */,
+				85A0208B273561DC0001575E /* WalletConnectView.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -146,6 +159,11 @@
 				8563A22C2733800D007D657A /* NFTJson.swift */,
 				8563A22427337E82007D657A /* NFTCastView.swift */,
 				8563A23527338277007D657A /* NFTAssetView.swift */,
+				85A02085273416D90001575E /* NFTEventJson.swift */,
+				85A020872734DDA80001575E /* NFTSellView.swift */,
+				85A020892734DE850001575E /* NFTAuctionView.swift */,
+				85A0208D273564BE0001575E /* NFTSell.swift */,
+				85A0208F2735763C0001575E /* NFTAuction.swift */,
 			);
 			path = NFT;
 			sourceTree = "<group>";
@@ -324,6 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8563A21927328806007D657A /* ResponderView.swift in Sources */,
+				85A020882734DDA80001575E /* NFTSellView.swift in Sources */,
+				85A020902735763C0001575E /* NFTAuction.swift in Sources */,
 				8563A22B27337FE2007D657A /* WalletTransactionView.swift in Sources */,
 				85A4BC9826ECD54A00DCB769 /* ContentView.swift in Sources */,
 				8563A22927337F99007D657A /* WalletImportView.swift in Sources */,
@@ -331,17 +351,21 @@
 				8563A21E27328806007D657A /* SessionInfo.swift in Sources */,
 				8563A22D2733800D007D657A /* NFTJson.swift in Sources */,
 				8563A21D27328806007D657A /* SessionViewController.swift in Sources */,
+				85A0208A2734DE850001575E /* NFTAuctionView.swift in Sources */,
 				8563A22527337E82007D657A /* NFTCastView.swift in Sources */,
 				85952A9326F33F450035B32C /* WCDBManager.swift in Sources */,
 				8550C06726FB59A600B17B3D /* ImagePicker.swift in Sources */,
 				8563A21827328806007D657A /* ResponderViewController.swift in Sources */,
 				85A4BC9626ECD54A00DCB769 /* megawalletApp.swift in Sources */,
 				8563A21B27328806007D657A /* ActiveSessionCell.swift in Sources */,
+				85A0208C273561DC0001575E /* WalletConnectView.swift in Sources */,
 				8563A22F273380AC007D657A /* WalletGate.swift in Sources */,
 				8563A21F27328806007D657A /* SessionView.swift in Sources */,
+				85A02086273416D90001575E /* NFTEventJson.swift in Sources */,
 				8563A23627338277007D657A /* NFTAssetView.swift in Sources */,
 				8563A21A27328806007D657A /* ActiveSessionItem.swift in Sources */,
 				8563A21C27328806007D657A /* ScannerViewController.swift in Sources */,
+				85A0208E273564BE0001575E /* NFTSell.swift in Sources */,
 				8563A22127337113007D657A /* ImageUploadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

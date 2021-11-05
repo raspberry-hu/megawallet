@@ -77,9 +77,6 @@ func createDB() -> Database{
     let path = URL(fileURLWithPath: baseDirectory).appendingPathComponent(className).path
     let tableName = className
     let database = Database(withPath: path)
-//    database.close(onClosed: {
-//        try? database.removeFiles()
-//    })
     do {
         try database.create(table: tableName, of: WalletTable.self)
     } catch let error {

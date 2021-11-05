@@ -39,15 +39,6 @@ struct ImageUploadView: View {
                 }
                 Button(action: {
                     tfMgr.Imgae = self.inputImage
-                    if self.image1 == nil{
-                        print("fail1")
-                    }
-                    if self.inputImage == nil{
-                        print("fail2")
-                    }
-                    if tfMgr.Imgae == nil{
-                        print("fail3")
-                    }
                     self.showingNFTContent.toggle()
                 }){
                     Text("upload")
